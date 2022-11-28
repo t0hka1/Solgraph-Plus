@@ -1,0 +1,3 @@
+[submodule "python-solidity-parser"]
+	path = python-solidity-parser
+	url = https://github.com/ConsenSys/python-solidity-parser.git
