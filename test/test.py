@@ -2,6 +2,7 @@ import sys
 sys.path.append("..")
 import main
 import os
+import pprint
 
 
 def show_files(path, all_files):
@@ -18,5 +19,8 @@ def show_files(path, all_files):
 
 contents = show_files("./in", [])
 
+
 for content in contents:
-    main.testOutput("./in/%s"%content)
+    builded=main.build("./in/%s"%content)
+    main.generateDot(builded)
+    
