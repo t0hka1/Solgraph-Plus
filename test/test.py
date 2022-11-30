@@ -1,6 +1,6 @@
 import sys
-sys.path.append("..")
-import main
+import solgraphPlus
+import solgraphPlus.main as main
 import os
 import pprint
 
