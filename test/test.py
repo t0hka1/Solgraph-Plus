@@ -22,5 +22,8 @@ contents = show_files("./in", [])
 
 for content in contents:
     builded=main.build("./in/%s"%content)
-    main.generateDot(builded)
+    dotGraph=main.generateDot(builded)
+    with open("out/%s.dot"%str.split(content,'.')[0],'w')as f:
+        f.write(str(dotGraph))
+
     

@@ -53,16 +53,14 @@ def build(fileLocation):
     
     for contract in sourceUnitObject.contracts:
         ddd[contract]={}
-        print("------------------------%s----------------------------"%contract)
+        # print("------------------------%s----------------------------"%contract)
         functionName = sourceUnitObject.contracts[contract].functions
-        # pprint.pprint((sourceUnitObject.contracts[contract].events.keys())) # 查看拥有哪些event
-        print('%-30s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s' %("funName","visibility","stateMutability","isConstructor","isFallback","isReceive","isSend","isCall","isTransfer","isEmitEvent","eventName"))
+        # print('%-30s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s' %("funName","visibility","stateMutability","isConstructor","isFallback","isReceive","isSend","isCall","isTransfer","isEmitEvent","eventName"))
         for fun in functionName:
             fff = sourceUnitObject.contracts[contract].functions[fun]
             node = fff._node.body
-            # pprint.pprint(checkEventCall(node))
             isEmitEvent,eventName=checkEventCall(node)
-            print('%-30s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s' %(fun,fff.visibility,fff.stateMutability,str(fff.isConstructor),str(fff.isFallback),str(fff.isReceive),str(checkAttr(node,"send")),str(checkAttr(node,"call")),str(checkAttr(node,"transfer")),str(isEmitEvent),eventName))
+            # print('%-30s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s' %(fun,fff.visibility,fff.stateMutability,str(fff.isConstructor),str(fff.isFallback),str(fff.isReceive),str(checkAttr(node,"send")),str(checkAttr(node,"call")),str(checkAttr(node,"transfer")),str(isEmitEvent),eventName))
             ddd[contract][fun] = (fff.visibility,fff.stateMutability,str(fff.isConstructor),str(fff.isFallback),str(fff.isReceive),str(checkAttr(node,"send")),str(checkAttr(node,"call")),str(checkAttr(node,"transfer")),str(isEmitEvent),eventName)
     return ddd
 
@@ -86,7 +84,7 @@ def colorSelect(fun): # 优先判断visibility,其次stateMutability,其次
 
 def generateDot(builded):
 
-    pprint.pprint(builded)
+    # pprint.pprint(builded)
 
     dotparent = Digraph(name="parent")
 
@@ -153,4 +151,4 @@ def generateDot(builded):
         dotparent.subgraph(dot)
 
     print(dotparent)
-
+    return dotparent
