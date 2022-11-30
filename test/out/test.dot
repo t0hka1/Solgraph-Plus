@@ -1,0 +1,42 @@
+digraph parent {
+	subgraph cluster_MerkleProof {
+		graph [label=MerkleProof]
+		subgraph cluster_MerkleProof_internal {
+			graph [label=internal]
+			MerkleProof -> verify
+			MerkleProof -> processProof
+		}
+		subgraph cluster_MerkleProof_public {
+			graph [label=public]
+		}
+		subgraph cluster_MerkleProof_external {
+			graph [label=external]
+		}
+		subgraph cluster_MerkleProof_default {
+			graph [label=default]
+		}
+	}
+	subgraph cluster_Merkle {
+		graph [label=Merkle]
+		subgraph cluster_Merkle_internal {
+			graph [label=internal]
+		}
+		subgraph cluster_Merkle_public {
+			graph [label=public]
+			min [color=yellow]
+			withdraw [color=purple]
+			TRANSFER
+			withdraw -> TRANSFER
+			balanceOf [color=yellow]
+		}
+		subgraph cluster_Merkle_external {
+			graph [label=external]
+			setMerkleroot
+			Complete
+		}
+		subgraph cluster_Merkle_default {
+			graph [label=default]
+			constructor [color=brown]
+		}
+	}
+}

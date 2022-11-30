@@ -1,0 +1,20 @@
+digraph parent {
+	subgraph cluster_ChildContract {
+		graph [label=ChildContract]
+		subgraph cluster_ChildContract_internal {
+			graph [label=internal]
+		}
+		subgraph cluster_ChildContract_public {
+			graph [label=public]
+			someFunction
+			anEvent [shape=egg]
+			someFunction -> anEvent
+		}
+		subgraph cluster_ChildContract_external {
+			graph [label=external]
+		}
+		subgraph cluster_ChildContract_default {
+			graph [label=default]
+		}
+	}
+}

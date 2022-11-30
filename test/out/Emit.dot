@@ -1,0 +1,20 @@
+digraph parent {
+	subgraph cluster_ClientReceipt {
+		graph [label=ClientReceipt]
+		subgraph cluster_ClientReceipt_internal {
+			graph [label=internal]
+		}
+		subgraph cluster_ClientReceipt_public {
+			graph [label=public]
+			deposit [color=brown]
+			Deposit [shape=egg]
+			deposit -> Deposit
+		}
+		subgraph cluster_ClientReceipt_external {
+			graph [label=external]
+		}
+		subgraph cluster_ClientReceipt_default {
+			graph [label=default]
+		}
+	}
+}

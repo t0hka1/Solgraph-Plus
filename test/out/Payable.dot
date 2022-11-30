@@ -1,0 +1,18 @@
+digraph parent {
+	subgraph cluster_MyContract {
+		graph [label=MyContract]
+		subgraph cluster_MyContract_internal {
+			graph [label=internal]
+		}
+		subgraph cluster_MyContract_public {
+			graph [label=public]
+			Foo [color=brown]
+		}
+		subgraph cluster_MyContract_external {
+			graph [label=external]
+		}
+		subgraph cluster_MyContract_default {
+			graph [label=default]
+		}
+	}
+}

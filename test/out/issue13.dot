@@ -1,0 +1,54 @@
+digraph parent {
+	subgraph cluster_ContractOne {
+		graph [label=ContractOne]
+		subgraph cluster_ContractOne_internal {
+			graph [label=internal]
+		}
+		subgraph cluster_ContractOne_public {
+			graph [label=public]
+			functionOne [color=green]
+		}
+		subgraph cluster_ContractOne_external {
+			graph [label=external]
+		}
+		subgraph cluster_ContractOne_default {
+			graph [label=default]
+		}
+	}
+	subgraph cluster_ContractTwo {
+		graph [label=ContractTwo]
+		subgraph cluster_ContractTwo_internal {
+			graph [label=internal]
+		}
+		subgraph cluster_ContractTwo_public {
+			graph [label=public]
+			functionTwo [color=brown]
+		}
+		subgraph cluster_ContractTwo_external {
+			graph [label=external]
+		}
+		subgraph cluster_ContractTwo_default {
+			graph [label=default]
+		}
+	}
+	subgraph cluster_ContractThree {
+		graph [label=ContractThree]
+		subgraph cluster_ContractThree_internal {
+			graph [label=internal]
+		}
+		subgraph cluster_ContractThree_public {
+			graph [label=public]
+			functionThree [color=purple]
+			TRANSFER
+			functionThree -> TRANSFER
+			anEvent [shape=egg]
+			functionThree -> anEvent
+		}
+		subgraph cluster_ContractThree_external {
+			graph [label=external]
+		}
+		subgraph cluster_ContractThree_default {
+			graph [label=default]
+		}
+	}
+}
